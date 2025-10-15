@@ -43,6 +43,7 @@
 
       " Git
       nnoremap <leader>g :Git<cr>
+      nnoremap <leader>gm :Git commit<cr>
       nnoremap <leader>gr :Git rebase<cr>
       nnoremap <leader>gP :Git pull<cr>
       nnoremap <leader>gp :Git push<cr>
