@@ -5,6 +5,7 @@
     shellAliases = {
       ls = "ls -al";
       drb = "sudo darwin-rebuild switch";
+      svim = "sudo vim";
     };
 
     initContent = lib.mkOrder 500 ''
