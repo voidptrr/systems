@@ -20,6 +20,7 @@
 
     extraConfig = ''
       " Options
+      set noswapfile
       set softtabstop=4
       set smartindent
       set nohlsearch
