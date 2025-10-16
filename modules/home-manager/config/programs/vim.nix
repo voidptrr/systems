@@ -43,7 +43,7 @@
       nnoremap <leader>gd :GitFiles<cr>
 
       " Git
-      nnoremap <leader>g :Git<cr>
+      nnoremap <leader>gs :Git<cr>
       nnoremap <leader>gm :Git commit<cr>
       nnoremap <leader>gr :Git rebase<cr>
       nnoremap <leader>gP :Git pull<cr>
