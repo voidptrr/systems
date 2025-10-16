@@ -1,0 +1,23 @@
+name: "checks"
+
+on:
+  push:
+    branches: 
+      - "main"
+    paths:
+      - "**.nix"
+      - "flake.lock"
+      - ".github/workflows/checks.yml"
+
+permissions:
+  id-token: "write"
+  contents: "read"
+
+jobs:
+  flake:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/flake-checker-action@main
+        with:
+          fail-mode: true
