@@ -1,8 +1,11 @@
-{ pkgs, username, ... }:
 {
+  pkgs,
+  username,
+  ...
+}: {
   # Register shell
   programs.zsh.enable = true;
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
 
   # Home-manager setup
   users.users.${username} = {
@@ -10,7 +13,7 @@
     home = "/Users/${username}";
   };
 
-  fonts.packages = with pkgs; [ jetbrains-mono ];
+  fonts.packages = with pkgs; [jetbrains-mono];
 
   system = {
     stateVersion = 6;
@@ -45,11 +48,15 @@
         mineffect = null;
         orientation = "bottom";
         persistent-apps = with pkgs; [
-          { app = "/System/Cryptexes/App/System/Applications/Safari.app"; }
-          { app = "/Applications/Kakaotalk.app"; }
+          {app = "/System/Cryptexes/App/System/Applications/Safari.app";}
+          {app = "/Applications/Kakaotalk.app";}
           {
             app = "${
-              (if stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty)
+              (
+                if stdenv.hostPlatform.isDarwin
+                then pkgs.ghostty-bin
+                else pkgs.ghostty
+              )
             }/Applications/Ghostty.app";
           }
         ];

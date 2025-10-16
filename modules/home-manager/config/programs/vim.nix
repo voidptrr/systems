@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vim = {
     enable = true;
     defaultEditor = true;
@@ -31,7 +30,7 @@
       " Colors
       syntax on
       set termguicolors
-      colorscheme retrobox 
+      colorscheme retrobox
 
       filetype plugin indent on
 

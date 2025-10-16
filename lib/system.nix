@@ -4,34 +4,30 @@
   nix-homebrew,
   home-manager,
   ...
-}:
-let
-  systems = [ "aarch64-darwin" ];
+}: let
+  systems = ["aarch64-darwin"];
 
   mkBasicConfig = system: {
-    nix.enable = (import nixpkgs { inherit system; }).stdenv.hostPlatform.isLinux;
+    nix.enable = (import nixpkgs {inherit system;}).stdenv.hostPlatform.isLinux;
     nixpkgs.hostPlatform = system;
   };
-in
-{
-
-  forAllSystems =
-    f:
+in {
+  forAllSystems = f:
     builtins.listToAttrs (
       map (system: {
         name = system;
         value = f system;
-      }) systems
+      })
+      systems
     );
 
-  mkDarwin =
-    {
-      system ? "aarch64-darwin",
-      username,
-    }:
+  mkDarwin = {
+    system ? "aarch64-darwin",
+    username,
+  }:
     nix-darwin.lib.darwinSystem {
       inherit system;
-      specialArgs = { inherit username; };
+      specialArgs = {inherit username;};
       modules = [
         (import ../modules/nix-darwin)
         (mkBasicConfig system)
@@ -41,5 +37,4 @@ in
         (import ../modules/home-manager)
       ];
     };
-
 }

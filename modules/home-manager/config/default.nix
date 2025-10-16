@@ -1,5 +1,8 @@
-{ username, pkgs, ... }:
 {
+  username,
+  pkgs,
+  ...
+}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -9,8 +12,8 @@
       home.homeDirectory = "/Users/${username}";
 
       programs.home-manager.enable = true;
-      home.packages = with pkgs; [ fzf ];
+      home.packages = with pkgs; [fzf];
     };
-    sharedModules = [ ./programs ];
+    sharedModules = [./programs];
   };
 }
