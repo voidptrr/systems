@@ -14,6 +14,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nix-darwin,
     nix-homebrew,
     home-manager,
@@ -31,6 +32,19 @@
   in
     with system-lib; {
       darwinConfigurations.personal = mkDarwin {username = "voidptr";};
+
+      checks = forAllSystems (system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        fmt =
+          pkgs.runCommand "fmt" {
+            buildInputs = [self.formatter.${system}];
+            src = ./.;
+          } ''
+            alejandra --check $src
+            touch $out
+          '';
+      });
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
     };
 }
