@@ -9,7 +9,13 @@
     };
 
     initContent = lib.mkOrder 500 ''
-      PROMPT='%F{red}%n%f in %F{yellow}%~%f %# '
+      autoload -Uz vcs_info
+      zstyle ':vcs_info:git:*' formats '%F{red}[%b]%f '
+      
+      precmd() { 
+        vcs_info 
+        PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f%# "
+      }
     '';
   };
 }
