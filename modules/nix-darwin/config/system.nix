@@ -49,6 +49,7 @@
         orientation = "bottom";
         persistent-apps = with pkgs; [
           {app = "/System/Cryptexes/App/System/Applications/Safari.app";}
+          {app = "/System/Applications/Music.app";}
           {app = "/Applications/Kakaotalk.app";}
           {
             app = "${
