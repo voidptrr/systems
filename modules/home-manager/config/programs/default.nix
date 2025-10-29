@@ -2,7 +2,7 @@
   imports = [
     ./ghostty.nix
     ./zsh.nix
-    ./vim.nix
+    ./nvim
     ./git.nix
   ];
 }

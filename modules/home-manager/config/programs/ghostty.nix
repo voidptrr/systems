@@ -8,19 +8,15 @@
     enableZshIntegration = true;
 
     settings = {
-      theme = "Gruvbox Dark Hard";
+      theme = "Everforest Dark Hard";
       font-size = 14;
       font-family = "JetBrains Mono";
 
-      # Enforce bold font rendering
-      font-style = "Bold";
-      font-style-bold = "Bold";
-      font-style-italic = "Bold Italic";
-      font-style-bold-italic = "Bold Italic";
+      background = "#292c33";
 
-      # I like small terminal
-      window-width = 117;
-      window-height = 36;
+      # I like terminal not full screen
+      window-width = 144;
+      window-height = 43;
     };
   };
 }

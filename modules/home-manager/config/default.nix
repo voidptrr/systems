@@ -1,5 +1,6 @@
 {
   username,
+  nixvim,
   pkgs,
   ...
 }: {
@@ -14,6 +15,6 @@
       programs.home-manager.enable = true;
       home.packages = with pkgs; [fzf];
     };
-    sharedModules = [./programs];
+    sharedModules = [nixvim.homeModules.nixvim ./programs];
   };
 }
