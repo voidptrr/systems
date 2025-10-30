@@ -29,17 +29,20 @@ in {
   mkDarwin = {
     system ? "aarch64-darwin",
     username,
+    machine-options,
   }: let
     nix-darwin-modules = import ../modules/nix-darwin;
     home-manager-modules = import ../modules/home-manager;
+    shared-options = import ../modules/shared;
     nix-options = mkBasicConfig system;
   in
     nix-darwin.lib.darwinSystem {
       inherit system;
-      specialArgs = {inherit username nixvim;};
+      specialArgs = {inherit username nixvim machine-options shared-options;};
       modules = [
         nix-options
-
+        shared-options
+        machine-options
         nix-darwin-modules
         nix-homebrew.darwinModules.nix-homebrew
 

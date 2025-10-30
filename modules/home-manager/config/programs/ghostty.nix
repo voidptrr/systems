@@ -12,8 +12,6 @@
       font-size = 14;
       font-family = "JetBrains Mono";
 
-      background = "#292c33";
-
       # I like terminal not full screen
       window-width = 144;
       window-height = 43;

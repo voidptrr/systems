@@ -19,8 +19,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs @ {
-    self,
+  outputs = {
     nix-darwin,
     nix-homebrew,
     home-manager,
@@ -39,9 +38,14 @@
         neovim-nightly-overlay
         ;
     };
+
+    m2-macbook-pro = import ./machines/m2-macbook-pro;
   in
     with system-lib; {
-      darwinConfigurations.personal = mkDarwin {username = "voidptr";};
+      darwinConfigurations.personal = mkDarwin {
+        username = "voidptr";
+        machine-options = m2-macbook-pro;
+      };
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
     };
 }

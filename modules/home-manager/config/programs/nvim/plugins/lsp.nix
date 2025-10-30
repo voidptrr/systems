@@ -28,6 +28,7 @@
         "ld" = "definition";
         "li" = "implementation";
         "lt" = "type_definition";
+        "la" = "code_action";
       };
     };
   };

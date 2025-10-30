@@ -1,6 +1,7 @@
 {
   number = true;
   relativenumber = true;
+  signcolumn = "yes";
 
   # Tabs
   shiftwidth = 4;

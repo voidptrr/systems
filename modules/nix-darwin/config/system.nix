@@ -1,16 +1,19 @@
 {
   pkgs,
   username,
+  config,
   ...
 }: {
   # Register shell
-  programs.zsh.enable = true;
-  environment.shells = [pkgs.zsh];
+  programs.zsh.enable = config.shell.package == pkgs.zsh;
+  programs.fish.enable = config.shell.package == pkgs.fish;
+  environment.shells = [config.shell.package];
 
   # Home-manager setup
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
+    shell = config.shell.package;
   };
 
   fonts.packages = with pkgs; [jetbrains-mono];
