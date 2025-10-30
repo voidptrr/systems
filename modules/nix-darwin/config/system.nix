@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   username,
   config,
   ...
@@ -7,7 +8,10 @@
   # Register shell
   programs.zsh.enable = config.shell.package == pkgs.zsh;
   programs.fish.enable = config.shell.package == pkgs.fish;
-  environment.shells = [config.shell.package];
+  environment = {
+    shells = [config.shell.package];
+    pathsToLink = lib.mkIf (config.shell.package == pkgs.zsh) ["/share/zsh"];
+  };
 
   # Home-manager setup
   users.users.${username} = {

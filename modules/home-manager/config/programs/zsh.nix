@@ -7,6 +7,7 @@
   config = lib.mkIf (config.shell.package == pkgs.zsh) {
     programs.zsh = {
       enable = true;
+      enableCompletion = true;
       shellAliases = lib.mkMerge [
         config.shell.aliases
         {
@@ -27,7 +28,7 @@
               PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f%F{blue}[nix]%f %# "
             else
               PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f %# "
-                fi
+            fi
         }
       '';
     };

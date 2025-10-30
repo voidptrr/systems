@@ -38,7 +38,14 @@ in {
   in
     nix-darwin.lib.darwinSystem {
       inherit system;
-      specialArgs = {inherit username nixvim machine-options shared-options;};
+      specialArgs = {
+        inherit
+          username
+          nixvim
+          machine-options
+          shared-options
+          ;
+      };
       modules = [
         nix-options
         shared-options
