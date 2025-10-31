@@ -1,16 +1,15 @@
-{...}: {
+{...}: let
+  nullServer = {
+    enable = true;
+    package = null;
+  };
+in {
   programs.nixvim.plugins.lsp = {
     enable = true;
     servers = {
       nixd.enable = true;
-      clangd = {
-        enable = true;
-        package = null;
-      };
-      zls = {
-        enable = true;
-        package = null;
-      };
+      clangd = nullServer;
+      zls = nullServer;
     };
 
     keymaps = {

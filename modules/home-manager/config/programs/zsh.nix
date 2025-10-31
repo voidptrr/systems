@@ -24,11 +24,11 @@
 
         precmd() {
           vcs_info
-            if [ -n "''${IN_NIX_SHELL-}" ]; then
-              PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f%F{blue}[nix]%f %# "
-            else
-              PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f %# "
-            fi
+          if [ -n "''${IN_NIX_SHELL-}" ]; then
+            PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f%F{blue}[nix]%f %# "
+          else
+            PROMPT="%F{red}%n%f in %F{yellow}%~%f %F{red}''${vcs_info_msg_0_}%f %# "
+          fi
         }
       '';
     };

@@ -17,14 +17,7 @@
     };
   };
 in {
-  forAllSystems = f:
-    builtins.listToAttrs (
-      map (system: {
-        name = system;
-        value = f system;
-      })
-      systems
-    );
+  forEachSystem = nixpkgs.lib.genAttrs systems;
 
   mkDarwin = {
     system ? "aarch64-darwin",

@@ -46,6 +46,11 @@
         username = "voidptr";
         machine-options = m2-macbook-pro;
       };
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+      # Common system outputs
+      formatter = forEachSystem (system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        pkgs.alejandra);
     };
 }
