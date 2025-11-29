@@ -5,11 +5,13 @@
       if pkgs.stdenv.hostPlatform.isLinux
       then pkgs.ghostty
       else pkgs.ghostty-bin;
-    enableZshIntegration = true;
 
+    enableZshIntegration = true;
     settings = {
-      theme = "Everforest Dark Hard";
+      theme = "Kanagawa Dragon";
       font-size = 14;
+      background-image = "/etc/nix-darwin/wallpapers/space1.png";
+      background-image-opacity = 0.35;
       font-family = "JetBrains Mono";
 
       # I like terminal not full screen

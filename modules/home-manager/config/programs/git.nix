@@ -2,9 +2,11 @@
   programs.git = {
     enable = true;
 
-    userName = "voidptrr";
-    userEmail = "bruno.tommaso@protonmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        username = "voidptrr";
+        email = "bruno.tommaso@protonmail.com";
+      };
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
       pull.rebase = true;

@@ -21,6 +21,12 @@
           softtabstop = 2;
         };
       };
+      "ftplugin/md.lua" = {
+        opts = {
+          conceallevel = 1;
+          colorcolumn = "";
+        }; 
+      };
     };
 
     colorschemes.everforest = {

@@ -15,7 +15,7 @@
       home.homeDirectory = "/Users/${username}";
 
       programs.home-manager.enable = true;
-      home.packages = with pkgs; [fzf];
+      home.packages = with pkgs; [fzf ripgrep];
     };
     sharedModules = [
       nixvim.homeModules.nixvim

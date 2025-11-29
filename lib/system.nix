@@ -14,6 +14,10 @@
     nixpkgs = {
       hostPlatform = system;
       overlays = [neovim-nightly-overlay.overlays.default];
+      config.allowUnfreePredicate = pkg:
+        builtins.elem ((import nixpkgs {inherit system;}).lib.getName pkg) [
+          "obsidian"
+        ];
     };
   };
 in {

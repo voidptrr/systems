@@ -58,12 +58,13 @@
           {app = "/System/Cryptexes/App/System/Applications/Safari.app";}
           {app = "/System/Applications/Music.app";}
           {app = "/Applications/Kakaotalk.app";}
+          {app = "${obsidian}/Applications/Obsidian.app";}
           {
             app = "${
               (
                 if stdenv.hostPlatform.isDarwin
-                then pkgs.ghostty-bin
-                else pkgs.ghostty
+                then ghostty-bin
+                else ghostty
               )
             }/Applications/Ghostty.app";
           }
