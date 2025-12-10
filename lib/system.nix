@@ -3,8 +3,6 @@
   nix-darwin,
   nix-homebrew,
   home-manager,
-  nixvim,
-  neovim-nightly-overlay,
   ...
 }: let
   systems = ["aarch64-darwin"];
@@ -13,7 +11,6 @@
     nix.enable = (import nixpkgs {inherit system;}).stdenv.hostPlatform.isLinux;
     nixpkgs = {
       hostPlatform = system;
-      overlays = [neovim-nightly-overlay.overlays.default];
       config.allowUnfreePredicate = pkg:
         builtins.elem ((import nixpkgs {inherit system;}).lib.getName pkg) [
           "obsidian"
@@ -38,7 +35,6 @@ in {
       specialArgs = {
         inherit
           username
-          nixvim
           machine-options
           shared-options
           ;

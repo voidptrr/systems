@@ -6,16 +6,16 @@
     user = username;
   };
 
-  #homebrew = {
-  # enable = true;
-  #onActivation = {
-  # autoUpdate = true;
-  #upgrade = true;
-  #cleanup = "zap";
-  #};
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap";
+    };
 
-  #masApps = {
-  # KakaoTalk = 869223134;
-  #};
-  #};
+    masApps = {
+      KakaoTalk = 869223134;
+    };
+  };
 }

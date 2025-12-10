@@ -12,11 +12,6 @@
     # Home-manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Nvim
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
@@ -24,8 +19,6 @@
     nix-homebrew,
     home-manager,
     nixpkgs,
-    nixvim,
-    neovim-nightly-overlay,
     ...
   }: let
     system-lib = import ./lib/system.nix {
@@ -34,8 +27,6 @@
         nix-darwin
         nix-homebrew
         home-manager
-        nixvim
-        neovim-nightly-overlay
         ;
     };
 

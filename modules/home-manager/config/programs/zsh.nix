@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf (config.shell.package == pkgs.zsh) {
+  config = {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

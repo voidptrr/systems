@@ -1,9 +1,7 @@
 {
   username,
-  nixvim,
   machine-options,
   shared-options,
-  pkgs,
   ...
 }: {
   home-manager = {
@@ -15,10 +13,8 @@
       home.homeDirectory = "/Users/${username}";
 
       programs.home-manager.enable = true;
-      home.packages = with pkgs; [fzf ripgrep];
     };
     sharedModules = [
-      nixvim.homeModules.nixvim
       shared-options
       machine-options
       ./options
