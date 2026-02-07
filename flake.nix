@@ -29,12 +29,12 @@
         flake.darwinModules = lib.mkOption {
           type = lib.types.attrsOf lib.types.raw;
           default = {};
-          description = "Registry of nix-darwin modules provided by branch leaves.";
+          description = "Registry of nix-darwin modules.";
         };
         flake.homeManagerModules = lib.mkOption {
           type = lib.types.attrsOf lib.types.raw;
           default = {};
-          description = "Registry of Home Manager modules provided by dev/shell leaves.";
+          description = "Registry of Home Manager modules.";
         };
       };
 
