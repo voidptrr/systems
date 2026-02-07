@@ -43,10 +43,7 @@
 
       config = {
         systems = ["aarch64-darwin"];
-        perSystem = {
-          pkgs,
-          ...
-        }: {
+        perSystem = {pkgs, ...}: {
           formatter = pkgs.alejandra;
           checks = {
             fmt = pkgs.runCommand "fmt-check" {} ''

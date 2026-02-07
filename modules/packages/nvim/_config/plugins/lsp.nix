@@ -8,10 +8,8 @@
           formatting.command = ["alejandra"];
           nixpkgs.expr = "import <nixpkgs> {}";
           options = {
-            darwin.expr =
-              "(builtins.getFlake \"/private/etc/nix-darwin\").darwinConfigurations.personal.options";
-            "home-manager".expr =
-              "(builtins.getFlake \"/private/etc/nix-darwin\").darwinConfigurations.personal.options.home-manager";
+            darwin.expr = "(builtins.getFlake \"/private/etc/nix-darwin\").darwinConfigurations.personal.options";
+            "home-manager".expr = "(builtins.getFlake \"/private/etc/nix-darwin\").darwinConfigurations.personal.options.home-manager";
           };
         };
       };
