@@ -15,8 +15,8 @@
               store = false;
             };
             models = {
-              "gpt-5.3-codex" = {
-                name = "GPT 5.3 Codex (OAuth)";
+              "gpt-5.2-codex" = {
+                name = "GPT 5.2 Codex (OAuth)";
                 limit = {
                   context = 272000;
                   output = 128000;

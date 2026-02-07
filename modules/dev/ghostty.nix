@@ -9,7 +9,7 @@
 
       enableZshIntegration = true;
       settings = {
-        theme = "Kanagawa Dragon";
+        theme = "Gruvbox Dark Hard";
         font-size = 15;
         font-thicken = true;
         font-thicken-strength = 100;

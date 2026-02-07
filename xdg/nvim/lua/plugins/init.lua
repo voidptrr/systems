@@ -1,5 +1,0 @@
-require("plugins.colors")
-require("plugins.completion")
-require("plugins.lsp")
-require("plugins.telescope")
-require("plugins.lualine")

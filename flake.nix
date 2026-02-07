@@ -1,5 +1,5 @@
 {
-  description = "My systems' configurations";
+  description = "System configuration infrastructure for my machines";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -14,6 +14,9 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {...} @ inputs: let
@@ -40,7 +43,10 @@
 
       config = {
         systems = ["aarch64-darwin"];
-        perSystem = {pkgs, ...}: {
+        perSystem = {
+          pkgs,
+          ...
+        }: {
           formatter = pkgs.alejandra;
           checks = {
             fmt = pkgs.runCommand "fmt-check" {} ''
