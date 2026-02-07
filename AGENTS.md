@@ -85,4 +85,3 @@ in {
 - Place Home-Manager files under `modules/dev/` or `modules/shells/` and register them via `flake.homeManagerModules.<name>`.
 - Define hosts under `modules/hosts/` and expose `flake.darwinConfigurations.<host>`.
 - After adding/renaming modules, run `nix build .#darwinConfigurations.<host>.system` (or your `rebuild` alias) to ensure everything evaluates.
-}
