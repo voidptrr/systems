@@ -1,22 +1,19 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
-  config = {
+{...}: {
+  flake.homeManagerModules.zsh = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
-      shellAliases = lib.mkMerge [
-        config.shell.aliases
-        {
-          rebuild =
-            if pkgs.stdenv.hostPlatform.isDarwin
-            then "sudo darwin-rebuild switch"
-            else "sudo nixos-rebuild switch";
-        }
-      ];
+      shellAliases = {
+        ls = "ls -al";
+        rebuild =
+          if pkgs.stdenv.hostPlatform.isDarwin
+          then "sudo darwin-rebuild switch"
+          else "sudo nixos-rebuild switch";
+      };
 
       initContent = lib.mkOrder 500 ''
         autoload -Uz vcs_info

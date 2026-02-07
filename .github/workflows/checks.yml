@@ -26,3 +26,5 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Run nix flake check
         run: nix flake check
+      - name: Build personal darwin system
+        run: nix build .#darwinConfigurations.personal.system
