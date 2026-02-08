@@ -1,6 +1,19 @@
 {
-  plugins.lsp = {
+  plugins.lsp = let
+    externalServer = {
+      enable = true;
+      package = null;
+    };
+  in {
     enable = true;
+    keymaps = {
+      lspBuf = {
+        "K" = "hover";
+        "<leader>ld" = "definition";
+        "<leader>li" = "implementation";
+        "<leader>lr" = "rename";
+      };
+    };
     servers = {
       nixd = {
         enable = true;
@@ -13,6 +26,7 @@
           };
         };
       };
+
       yamlls = {
         enable = true;
         settings = {
@@ -21,6 +35,16 @@
           format.enable = true;
         };
       };
+
+      rust_analyzer =
+        externalServer
+        // {
+          installCargo = false;
+          installRustc = false;
+        };
+
+      clangd = externalServer;
+      ts_ls = externalServer;
     };
   };
 }
