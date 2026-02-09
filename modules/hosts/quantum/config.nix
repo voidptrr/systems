@@ -1,8 +1,12 @@
 {...}: {
-  flake.darwinModules."quantum" = {username, ...}: {
-    home-manager.users.${username}.programs.gitProfile = {
-      name = "voidptrr";
-      email = "bruno.tommaso@protonmail.com";
-    };
+  flake.darwinModules."quantum" = { ... }: {
+    home-manager.sharedModules = [
+      {
+        programs.gitProfile = {
+          name = "voidptrr";
+          email = "bruno.tommaso@protonmail.com";
+        };
+      }
+    ];
   };
 }
