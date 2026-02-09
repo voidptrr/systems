@@ -1,23 +1,47 @@
-{...}: {
-  flake.homeManagerModules.git = {...}: {
-    programs.git = {
-      enable = true;
-
-      signing = {
-        signByDefault = true;
-        key = "~/.ssh/id_ed25519.pub";
-        format = "ssh";
+{lib, ...}: {
+  flake.homeManagerModules.git = {config, ...}: let
+    cfg = config.programs.gitProfile;
+  in {
+    options.programs.gitProfile = {
+      name = lib.mkOption {
+        type = lib.types.str;
       };
+      email = lib.mkOption {
+        type = lib.types.str;
+      };
+    };
 
-      settings = {
-        user = {
-          username = "voidptrr";
-          email = "bruno.tommaso@protonmail.com";
+    config = {
+      assertions = [
+        {
+          assertion = cfg.name != null && cfg.name != "";
+          message = "programs.gitProfile.name must be set.";
+        }
+        {
+          assertion = cfg.email != null && cfg.email != "";
+          message = "programs.gitProfile.email must be set.";
+        }
+      ];
+
+      programs.git = {
+        enable = true;
+
+        signing = {
+          signByDefault = true;
+          key = "~/.ssh/id_ed25519.pub";
+          format = "ssh";
         };
-        push.autoSetupRemote = true;
-        init.defaultBranch = "main";
-        pull.rebase = true;
-        safe.directory = "/etc/nix-darwin";
+
+        settings = {
+          user = {
+            name = cfg.name;
+            email = cfg.email;
+          };
+          push.autoSetupRemote = true;
+          init.defaultBranch = "main";
+          pull.rebase = true;
+          safe.directory = "/etc/nix-darwin";
+        };
       };
     };
   };
