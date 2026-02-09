@@ -16,7 +16,7 @@
       shell = pkgs.zsh;
     };
 
-    fonts.packages = with pkgs; [jetbrains-mono];
+    fonts.packages = with pkgs; [jetbrains-mono source-code-pro];
 
     system = {
       stateVersion = 6;

@@ -13,7 +13,7 @@
         font-size = 15;
         font-thicken = true;
         font-thicken-strength = 100;
-        font-family = "Berkeley Mono";
+        font-family = "Source Code Pro";
 
         window-width = 144;
         window-height = 43;

@@ -31,4 +31,14 @@
     title = true;
     titlestring = "%t%( %M%)%( (%{expand(\"%:~:h\")})%)%a (nvim)";
   };
+
+  files = {
+    "ftplugin/nix.lua" = {
+      opts = {
+        shiftwidth = 2;
+        tabstop = 2;
+        softtabstop = 2;
+      };
+    };
+  };
 }
