@@ -1,5 +1,5 @@
 {...}: {
-  flake.darwinModules."quantum" = { ... }: {
+  flake.darwinModules."quantum" = {...}: {
     home-manager.sharedModules = [
       {
         programs.gitProfile = {

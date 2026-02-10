@@ -1,4 +1,6 @@
-{
+{pkgs, ...}: {
+  extraPackages = with pkgs; [ripgrep];
+
   viAlias = true;
   vimAlias = true;
 
