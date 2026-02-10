@@ -16,6 +16,8 @@
 
       brews = ["mole"];
 
+      casks = ["firefox"];
+
       masApps = {
         KakaoTalk = 869223134;
       };

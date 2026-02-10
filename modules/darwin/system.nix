@@ -16,7 +16,7 @@
       shell = pkgs.zsh;
     };
 
-    fonts.packages = with pkgs; [jetbrains-mono source-code-pro];
+    fonts.packages = with pkgs; [source-code-pro];
 
     system = {
       stateVersion = 6;
@@ -54,7 +54,7 @@
             {app = "/System/Cryptexes/App/System/Applications/Safari.app";}
             {app = "/System/Applications/Music.app";}
             {app = "/Applications/Kakaotalk.app";}
-            {app = "${obsidian}/Applications/Obsidian.app";}
+            {app = "/Applications/Firefox.app";}
             {
               app = "${
                 (
