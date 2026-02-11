@@ -1,7 +1,7 @@
-{inputs, ...}: {
+{self, ...}: {
   flake.homeManagerModules.nvim = {pkgs, ...}: {
     home.packages = [
-      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
+      self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
     ];
   };
 }

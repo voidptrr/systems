@@ -5,22 +5,13 @@
 }: let
   system = "aarch64-darwin";
   username = "voidptr";
-  systemPkgs = import inputs.nixpkgs {inherit system;};
-
-  baseModule = {
-    nix.enable = systemPkgs.stdenv.hostPlatform.isLinux;
-    nixpkgs = {
-      hostPlatform = system;
-      config.allowUnfreePredicate = pkg:
-        builtins.elem (systemPkgs.lib.getName pkg) ["obsidian"];
-    };
-  };
 
   darwinStack = [
     self.darwinModules.system
     self.darwinModules.homebrew
-    self.darwinModules."quantum"
-    self.darwinModules."home-manager-entry"
+    self.darwinModules.quantum
+    self.darwinModules.home-manager-entry
+    self.nixModules.base
   ];
 
   homeModules = builtins.attrValues self.homeManagerModules;
@@ -32,8 +23,7 @@ in {
       homeManagerModules = homeModules;
     };
     modules =
-      [baseModule]
-      ++ darwinStack
+      darwinStack
       ++ [
         inputs.nix-homebrew.darwinModules.nix-homebrew
         inputs.home-manager.darwinModules.home-manager
