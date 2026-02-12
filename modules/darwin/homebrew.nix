@@ -1,25 +1,44 @@
-{...}: {
-  flake.darwinModules.homebrew = {username, ...}: {
-    nix-homebrew = {
-      enable = true;
-      enableRosetta = true;
-      user = username;
+{lib, ...}: {
+  flake.darwinModules.homebrew = {
+    username,
+    config,
+    ...
+  }: let
+    cfg = config.homebrewConfig;
+  in {
+    options.homebrewConfig = {
+      brews = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+      };
+      casks = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+      };
+      masApps = lib.mkOption {
+        type = lib.types.attrsOf lib.types.int;
+        default = {};
+      };
     };
 
-    homebrew = {
-      enable = true;
-      onActivation = {
-        autoUpdate = true;
-        upgrade = true;
-        cleanup = "zap";
+    config = {
+      nix-homebrew = {
+        enable = true;
+        enableRosetta = true;
+        user = username;
       };
 
-      brews = ["mole"];
+      homebrew = {
+        enable = true;
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "zap";
+        };
 
-      casks = ["firefox"];
-
-      masApps = {
-        KakaoTalk = 869223134;
+        brews = cfg.brews;
+        casks = cfg.casks;
+        masApps = cfg.masApps;
       };
     };
   };
