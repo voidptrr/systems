@@ -43,31 +43,6 @@
           StandardHideWidgets = true;
         };
 
-        dock = {
-          autohide = true;
-          launchanim = false;
-          magnification = false;
-          minimize-to-application = true;
-          mineffect = null;
-          orientation = "bottom";
-          persistent-apps = with pkgs; [
-            {app = "/System/Applications/Music.app";}
-            {app = "/Applications/Kakaotalk.app";}
-            {app = "/Applications/Firefox.app";}
-            {
-              app = "${
-                (
-                  if stdenv.hostPlatform.isDarwin
-                  then ghostty-bin
-                  else ghostty
-                )
-              }/Applications/Ghostty.app";
-            }
-          ];
-          show-recents = false;
-          tilesize = 48;
-        };
-
         finder = {
           AppleShowAllExtensions = true;
           AppleShowAllFiles = true;

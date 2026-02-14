@@ -1,16 +1,20 @@
-{
+{lib, ...}: {
   plugins = {
-    web-devicons.enable = false;
+    web-devicons.enable = lib.mkForce false;
     telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
       settings = {
         defaults = {
-          disable_devicons = true;
           layout_strategy = "bottom_pane";
           layout_config = {
             prompt_position = "bottom";
           };
+        };
+        pickers = {
+          find_files.disable_devicons = true;
+          git_files.disable_devicons = true;
+          grep_string.disable_devicons = true;
         };
         extensions = {
           wrap_results = true;

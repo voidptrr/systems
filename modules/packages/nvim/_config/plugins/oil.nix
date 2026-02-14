@@ -2,7 +2,9 @@
   plugins.oil = {
     enable = true;
     settings = {
-      columns = [];
+      columns = [
+        "size"
+      ];
       view_options = {
         show_hidden = true;
       };

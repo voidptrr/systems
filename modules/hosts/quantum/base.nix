@@ -8,6 +8,7 @@
 
   darwinStack = [
     self.darwinModules.system
+    self.darwinModules.dock
     self.darwinModules.homebrew
     self.darwinModules.quantum
     self.darwinModules.home-manager-entry
