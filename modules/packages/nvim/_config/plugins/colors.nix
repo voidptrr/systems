@@ -1,16 +1,15 @@
-{
-  colorschemes.gruvbox = {
-    enable = true;
-    autoLoad = true;
-    settings = {
-      contrast = "hard";
-      italic = {
-        strings = false;
-        emphasis = false;
-        comments = false;
-        operators = false;
-        folds = false;
-      };
+{pkgs, ...}: let
+  vantablack = pkgs.vimUtils.buildVimPlugin {
+    pname = "vantablack.nvim";
+    version = "main";
+    src = pkgs.fetchFromGitHub {
+      owner = "bjarneo";
+      repo = "vantablack.nvim";
+      rev = "main";
+      sha256 = "sha256-rX3rIhV5wD9dsRj0J1KtYv2rpAFraN+wp6rdrLmp8dY=";
     };
   };
+in {
+  extraPlugins = [vantablack];
+  colorscheme = "vantablack";
 }
